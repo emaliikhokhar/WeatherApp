@@ -28,13 +28,12 @@ const App = () => {
         <div>
           <WeatherComponent />
         </div>
-        <div>
-        <WeatherCards API_Key={API_Key} city="Lahore"/>
-          {/* {
+        <div className="d-flex justify-content-center" >
+          {
             citiesState.map((elem) => {
               return <WeatherCards API_Key={API_Key} city={elem} key={elem}/>
             })
-          } */}
+          }
         </div>
       </div>
     );
