@@ -10,30 +10,24 @@ import SearchBar from './Component/SearchBar';
 const API_Key: string = "f3a63dd6c483452c9fc61549211310"
 
 const App = () => {
-
-  // const [data, setData] = useState();
   const cities: string[] = ["London", "Lahore", "Delhi", "Istanbul", "Paris"]
   const [citiesState] = useState(cities);
+  const [searchCity, setSearchCity] = useState("Gujranwala");
 
-  useEffect(() => {
-    let response;
-    async function FetchMyAPI() {
-        response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_Key}&q=London&aqi=yes`);
-        response = await response.json();
-      }
-      FetchMyAPI();
-    })
-
+  const settingSearchedCity = (city: string) => {
+    setSearchCity(city)
+  }
+  console.log(searchCity)
     return (
       <div className="App">
         <div>
             <p className="heading is-size-2 mt-4">Weather</p>
         </div>
         <div className="mt-4 d-flex justify-content-center">
-          <SearchBar/>
+          <SearchBar settingSearchedCity={settingSearchedCity}/>
         </div>
         <div>
-          <WeatherComponent />
+          <WeatherComponent searched={searchCity} API_Key={API_Key}/>
         </div>
         <div className="d-flex justify-content-center mt-4" >
           {

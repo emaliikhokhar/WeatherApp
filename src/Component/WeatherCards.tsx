@@ -18,9 +18,7 @@ const WeatherCards = (props: IProps) => {
             setLoad(false);
         }
         FetchMyAPI();
-
     }, [])
-    console.log(cityData)
     return (
         <div>
             {
