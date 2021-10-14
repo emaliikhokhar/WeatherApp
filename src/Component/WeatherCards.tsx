@@ -24,12 +24,15 @@ const WeatherCards = (props: IProps) => {
     return (
         <div>
             {
-                load ? <h1>Loading...</h1>
-                    : <div className="card text-dark ms-4 me-4">
-                        <img className="card-img-top w-25 mx-auto d-block" src={cityData.current.condition.icon} alt={cityData.current.condition.text} />
+                load ? <i className="fas fa-spinner fa-pulse">Loading...</i>
+                    : <div className="card text-dark ms-4 me-4 h-100" style={{width: "250px"}}>
+                        <img className="card-img-top w-25 mx-auto d-block mt-3" src={cityData.current.condition.icon} alt={cityData.current.condition.text} />
                         <div className="card-body">
-                            <h5 className="card-title">{cityData.location.name}</h5><span>{cityData.location.country}</span>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 className="card-title ">{cityData.location.name}</h5><span className="heading">{cityData.location.country}</span>
+                            <div className="pt-4">
+                                <p className="heading">Temperature</p>
+                                <p className="title">{cityData.current.temp_c}&deg;C</p>
+                            </div>
                         </div></div>
             }
         </div>
