@@ -11,26 +11,23 @@ const WeatherComponent = (props: IProps) => {
     useEffect(() => {
         let response;
         async function FetchMyAPI() {
-            response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${props.API_Key}&q=${props.searched}&aqi=yes`)
+            response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${props?.API_Key}&q=${props?.searched}&aqi=no`)
                 .then(response => response.json());
+                console.log(response)
             setCityData(response)
             setLoad(false);
         }
         FetchMyAPI();
-    }, [])
+    }, [props?.searched])
     return (
         <div>
             {
                 load ? <i className="fas fa-spinner fa-pulse">Loading...</i>
                     : <div className="container">
                         <div className="cards">
-                            <div className="d-flex justify-content-center" style={{marginTop: "-25px"}}>
-                                <div className="py-4">
-                                    <img src={cityData.current.condition.icon} width="70px" />
-                                </div>
-                                <div style={{paddingTop: "39px", marginLeft: "-15px", fontSize: "28px"}}>
-                                    <span>{cityData.current.condition.text}</span>
-                                </div>
+                            <div className="justify-content-center d-flex mb-4 mr-5">
+                                <img src={cityData.current.condition.icon} width="80px"/>
+                                <p className="fs-2 pt-3">{cityData.current.condition.text}</p>
                             </div>
                             <div style={{marginTop: "-15px"}}>
                                 <p className="title">{cityData.location.name}</p>

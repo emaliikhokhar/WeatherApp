@@ -23,7 +23,7 @@ const WeatherCards = (props: IProps) => {
         <div>
             {
                 load ? <i className="fas fa-spinner fa-pulse">Loading...</i>
-                    : <div className="card text-dark ms-4 me-4 h-100" style={{width: "250px"}}>
+                    : <div className="card text-dark ms-4 me-4 h-100 " style={{width: "250px"}}>
                         <img className="card-img-top w-25 mx-auto d-block mt-3" src={cityData.current.condition.icon} alt={cityData.current.condition.text} />
                         <div className="card-body">
                             <h5 className="card-title ">{cityData.location.name}</h5><span className="heading">{cityData.location.country}</span>

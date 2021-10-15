@@ -12,11 +12,12 @@ const API_Key: string = "f3a63dd6c483452c9fc61549211310"
 const App = () => {
   const cities: string[] = ["London", "Lahore", "Delhi", "Istanbul", "Paris"]
   const [citiesState] = useState(cities);
-  const [searchCity, setSearchCity] = useState("Gujranwala");
+  const [searchCity, setSearchCity] = useState("Islamabad");
 
   const settingSearchedCity = (city: string) => {
     setSearchCity(city)
   }
+  
   console.log(searchCity)
     return (
       <div className="App">

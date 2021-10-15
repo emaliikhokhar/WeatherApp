@@ -5,14 +5,12 @@ interface IProps {
 }
 
 const SearchBar = (props: IProps) => {
-
     const [search, setSearch] = useState<string>("");
-
     const onChangeHandler = (e: FormEvent<HTMLInputElement>) => {
         setSearch(e.currentTarget.value)
     }
-
     const onClickHandler = () => {
+        console.log(search, "in search bar");
         props.settingSearchedCity(search)
     }
 
