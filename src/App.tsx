@@ -11,14 +11,14 @@ const API_Key: string = "f3a63dd6c483452c9fc61549211310"
 
 const App = () => {
   const cities: string[] = ["London", "Lahore", "Delhi", "Istanbul", "Paris"]
-  const [citiesState] = useState(cities);
-  const [searchCity, setSearchCity] = useState("Islamabad");
+  const [searchCity, setSearchCity] = useState<string>("Islamabad");
 
   const settingSearchedCity = (city: string) => {
+    console.log(city, "in app")
     setSearchCity(city)
   }
-  
   console.log(searchCity)
+  
     return (
       <div className="App">
         <div>
@@ -32,7 +32,7 @@ const App = () => {
         </div>
         <div className="d-flex justify-content-center mt-4" >
           {
-            citiesState.map((elem) => {
+            cities.map((elem) => {
               return <WeatherCards API_Key={API_Key} city={elem} key={elem}/>
             })
           }

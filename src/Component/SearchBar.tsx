@@ -11,16 +11,16 @@ const SearchBar = (props: IProps) => {
     }
     const onClickHandler = () => {
         console.log(search, "in search bar");
-        props.settingSearchedCity(search)
+        // props.settingSearchedCity(search)
     }
 
     return (
         <div>
             <form>
                 <div className="input-group mb-3 w-100">
-                    <input type="text" style={{ height: "50px" }} name="search" onChange={onChangeHandler} className="form-control" placeholder="Enter the city name" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                    <input type="text" style={{ height: "50px" }} onChange={onChangeHandler} className="form-control" placeholder="Enter the city name" />
                     <div className="input-group-append">
-                        <button className="input-group-text" style={{ height: "50px" }} id="basic-addon2" onClick={onClickHandler}>Search</button>
+                        <button className="input-group-text" style={{ height: "50px" }}onClick={onClickHandler}>Search</button>
                     </div>
                 </div>
             </form>
